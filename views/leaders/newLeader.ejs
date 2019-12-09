@@ -1,0 +1,39 @@
+<% include ../partials/header.html %>
+
+
+<h1 style="margin: 20px  auto; text-align: center;">
+	come be one of our leaders!
+</h1>
+
+<div style="margin: auto" class="container">
+	<div class="row">
+		<div style="width: 40%; margin: 10px auto;">	
+			<form action="/leaders" method="POST">
+				<div class="form-group">
+					<input class="form-control" type="text" name="username" placeholder="user name">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="image" placeholder="image url">	
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="description" placeholder="description">	
+				</div>
+				<% hashtags.forEach((hashtag)=>{ %>
+					<label class="radio"><input type="radio" name="<%= hashtag %>"><%= hashtag %></label>
+				<% }) %>
+				<div class="form-group">
+					<input class="form-control" type="text" name="followers" placeholder="followers">	
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="location" placeholder="location">	
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary btn-block btn-lg btn-default"> submit </button>	
+				</div>
+			</form>		
+			<a href="/leaders">check out the rest of our leaders</a>
+			<% include ../partials/footer.html %>
+		</div>	
+	</div>
+</div>
+

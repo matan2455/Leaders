@@ -1,0 +1,59 @@
+<% include ../partials/header.html %>
+
+<% if(currentUser) { %>
+	<h1 style="text-align: center">hello <%= currentUser.username %></h1>
+<% } %>
+
+<div class="container" style="text-align: center">
+	<header class="jumbotron">
+		<div class="container">
+			<h1>
+			 	<span class="glyphicon glyphicon-film" aria-hidden="true"></span>    JUST PICK ONE:)
+			</h1>	
+			<p>
+				view our very cool and diversed leaders, and start advertising your buisness!
+			</p>
+			<p style="margin: 0;">
+				<a class="btn btn-primary btn-lg" href="/leaders/new">new leader?</a>	
+				<a class="btn btn-primary btn-lg" href="/publishers/new">create account</a>
+			</p>
+			
+					
+			
+		</div>
+	</header>	
+
+
+
+	<div class="row">
+		<div class="col-lg-12">
+			<h3>
+				here are our most popular leaders!	
+			</h3>
+		</div>	
+	</div>
+
+	<div class="row text-center" style="display:flex; flex-wrap:wrap;">
+			<% leaders.forEach((leader)=> { %>
+				<div class="col-md-3 col-sm-6">
+
+					<div class="thumbnail">
+						<img class="picture" src="<%= leader.image %>">
+						<div class="caption">
+							<h4>
+								<%= leader.username %>
+							</h4> 
+						</div>
+						<p>
+							<a href="/leaders/<%= leader._id %>" class="btn btn-primary">More Info</a>
+						</p>
+					</div>
+					
+				</div>
+			<% }); %>
+	</div>
+</div>
+
+<a href="/">back to home page</a>
+
+<% include ../partials/footer.html %>
